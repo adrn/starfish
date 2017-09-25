@@ -71,7 +71,7 @@ transformed data {
 
     // Fixed parameters (for now)
     real beta = 0.;
-    real gamma = 2.5;
+    // real gamma = 3.5;
     // real Mbh = 4e6;
 }
 
@@ -81,7 +81,7 @@ parameters {
     // real<lower=0> true_r[N];
     // real<lower=0> true_v[N];
 
-    // real<lower=0.01, upper=5> gamma;
+    real<lower=2, upper=6> gamma;
     // real<upper=1> beta;
 }
 
@@ -104,4 +104,7 @@ model {
         target += 2*log(true_r[n]) + 2*log(true_v[n]);
         target += 2*log(4*pi());
     }
+
+    Mbh ~ uniform(1e6, 1e7);
+    gamma ~ uniform(2, 6);
 }
