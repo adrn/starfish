@@ -71,7 +71,7 @@ transformed data {
 
     // Fixed parameters (for now)
     real beta = 0.;
-    real gamma = 2.5;
+    real gamma = 3.5;
     // real Mbh = 4e6;
 }
 
