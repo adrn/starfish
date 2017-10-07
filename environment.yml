@@ -1,0 +1,13 @@
+name: starfish
+
+channels:
+  - astropy
+
+dependencies:
+  - python=3
+  - astropy>=2
+  - numpy
+  - matplotlib
+  - scipy
+  - pip:
+    - astro-gala
