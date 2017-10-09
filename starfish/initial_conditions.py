@@ -2,6 +2,7 @@
 import astropy.units as u
 import astropy.coordinates as coord
 import numpy as np
+import gala.dynamics as gd
 
 __all__ = ['rv_to_3d_isotropic']
 
@@ -25,8 +26,8 @@ def rv_to_3d_isotropic(r, v):
     phi = np.random.uniform(0, 2*np.pi, size=r.size) * u.radian
     theta = np.arccos(2*np.random.uniform(size=r.size) - 1) * u.radian
     v_sph = coord.PhysicsSphericalRepresentation(phi=phi, theta=theta,
-                                                 r=np.ones_like(v)*u.one)
+                                                 r=np.ones_like(v.value)*u.one)
     v_xyz = v * v_sph.represent_as(coord.CartesianRepresentation).xyz
 
-    return xyz, v_xyz
+    return gd.PhaseSpacePosition(pos=xyz, vel=v_xyz)
 
