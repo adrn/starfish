@@ -9,5 +9,7 @@ dependencies:
   - numpy
   - matplotlib
   - scipy
+  - jupyter
+  - emcee
   - pip:
     - astro-gala
